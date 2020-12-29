@@ -8,7 +8,7 @@
       <link href="2020/12/30/github-pei-zhi-ming-ling/"/>
       <url>2020/12/30/github-pei-zhi-ming-ling/</url>
       
-        <content type="html"><![CDATA[<p>1.在博客目录下hexo new  “文件名”</p><p>2.npm install –save hexo-deployer-git          本地和github连接</p><p>3.每次修改hexo clean 清理  hexo g  解析  hexo d 部署到github</p><p>4._config.yml文件里最后面增加<img src="C:\Users\鱼\AppData\Roaming\Typora\typora-user-images\image-20201230011033503.png" alt="image-20201230011033503"></p><p>5.更新主题在themes下git clone 主题的地址，然后把在_config.yml文件里吧themes 后面改成主题文件名</p>]]></content>
+        <content type="html"><![CDATA[<p>1.在博客目录下hexo new  “文件名”</p><p>2.npm install –save hexo-deployer-git          本地和github连接</p><p>3.每次修改hexo clean 清理  hexo g  解析  hexo d 部署到github</p><p>4._config.yml文件里最后面增加</p><p>​    type: ‘git’</p><p>​    repo: 自己的仓库地址</p><p>​    branch: master</p><p>5.更新主题在themes下git clone 主题的地址，然后把在_config.yml文件里吧themes 后面改成主题文件名</p>]]></content>
       
       
       
