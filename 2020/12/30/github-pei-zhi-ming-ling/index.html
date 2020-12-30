@@ -130,6 +130,58 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -230,6 +282,61 @@
 			
 			友情链接
 		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -446,8 +553,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">学习</span>
+                            <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                                <span class="chip bg-color">随笔</span>
                             </a>
                         
                     </div>
@@ -471,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    726
+                    1.2k
                 </div>
                 
 
@@ -488,7 +595,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1.在博客目录下hexo new  “文件名”</p>
+                <h3 id="博客的基本操作"><a href="#博客的基本操作" class="headerlink" title="博客的基本操作"></a>博客的基本操作</h3><p>1.在博客目录下hexo new  “文件名”</p>
 <p>2.npm install –save hexo-deployer-git          本地和github连接</p>
 <p>3.每次修改hexo clean 清理  hexo g  解析  hexo d 部署到github</p>
 <p>4._config.yml文件里最后面增加</p>
@@ -601,6 +708,19 @@ tags:
   - Typora
   - Markdown
 ---</code></pre>
+<h3 id="配置个性化域名"><a href="#配置个性化域名" class="headerlink" title="配置个性化域名"></a>配置个性化域名</h3><p>一顿操作下来，打开我们的博客还是：<a target="_blank" rel="noopener" href="http://www.xxx.github.io/">www.xxx.github.io</a>，是不是很没有牌面？我们可以考虑购买一个专属域名，以后打开博客就是这样：<a target="_blank" rel="noopener" href="http://www.xxx.com/">www.xxx.com</a> 。</p>
+<p><a target="_blank" rel="noopener" href="https://www.aliyun.com/">阿里云</a>和<a target="_blank" rel="noopener" href="https://cloud.tencent.com/">腾讯云</a>都可以，我的是腾讯云，购买域名后首先需要添加解析：</p>
+<p><img src="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/24.png" alt="img"></p>
+<p><img src="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/25.png" alt="img"></p>
+<p><strong>方法一：</strong>点击添加记录，需要添加两个记录，两个记录类型都是 CNAME ，第一个主机记录为 @ ，第二个主机记录为 www，记录值都是填你自己的博客地址（比如我的是：muyiio.github.io），保存之后域名解析就完成了！</p>
+<p><img src="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/27.png" alt="img"></p>
+<p><strong>方法二：</strong>两个记录类型为 A ，第一个主机记录为 @ ，第二个主机记录为 www，记录值都为博客的 IP 地址，IP 地址可以 cmd 中输入 ping 你的博客地址 获得（比如我的：ping muyiio.github.io），保存之后域名解析就完成了！</p>
+<p><img src="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/26.png" alt="img"></p>
+<p><strong>不管在哪个平台购买域名，操作都大同小异，这里说明两点</strong>：</p>
+<p>然后打开你的github博客项目，点击settings，拉到下面Custom domain处，填上你自己的域名，保存就可以了</p>
+<p>现在我们的项目根目录应该会出现一个名为CNAME的文件了。如果没有的话，打开你本地博客/source目录，我的是C:\Blog\Hexo\source，新建CNAME文件，（注意不要加.txt，没有任何后缀名！）。然后在里面写上你的域名，保存。最后运行hexo g、hexo d上传到github。</p>
+<p><img src="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/29.png" alt="img"></p>
+<p>现在就可以通过我们的个性化域名：<a target="_blank" rel="noopener" href="http://www.xxx.com、xxx.com/">www.xxx.com、xxx.com</a>访问自己的博客了。</p>
 
                 
             </div>
@@ -665,8 +785,8 @@ tags:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">学习</span>
+                                <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                                    <span class="chip bg-color">随笔</span>
                                 </a>
                             
                         </div>
@@ -1099,18 +1219,17 @@ tags:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/12/30/github-pei-zhi-ming-ling/">
+                <a href="/2020/12/30/s/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="github配置命令">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="s">
                         
-                        <span class="card-title">github配置命令</span>
+                        <span class="card-title">s</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1120,9 +1239,9 @@ tags:
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1130,15 +1249,6 @@ tags:
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">学习</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1162,7 +1272,7 @@ tags:
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            markdown的笔记
                         
                     </div>
                     <div class="publish-info">
@@ -1173,8 +1283,8 @@ tags:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BF%83%E6%83%85/" class="post-category">
-                                    心情
+                            <a href="/categories/markdown/" class="post-category">
+                                    markdown
                                 </a>
                             
                             
@@ -1388,7 +1498,7 @@ tags:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">766</span>&nbsp;字
+                class="white-color">1.2k</span>&nbsp;字
             
             
             
@@ -1603,6 +1713,8 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
