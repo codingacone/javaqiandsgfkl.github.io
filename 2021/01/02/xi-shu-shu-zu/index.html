@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="github配置命令, MyBlog">
+    <meta name="keywords" content="稀疏数组, MyBlog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>github配置命令 | MyBlog</title>
+    <title>稀疏数组 | MyBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -465,12 +465,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">github配置命令</h1>
+                    <h1 class="description center-align post-title">稀疏数组</h1>
                 </div>
             </div>
         </div>
@@ -586,14 +586,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                                <span class="chip bg-color">随笔</span>
+                            <a href="/tags/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/">
+                                <span class="chip bg-color">稀疏数组</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -602,7 +611,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-30
+                    2021-01-02
                 </div>
                 
 
@@ -611,7 +620,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    867
                 </div>
                 
 
@@ -628,132 +637,90 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="博客的基本操作"><a href="#博客的基本操作" class="headerlink" title="博客的基本操作"></a>博客的基本操作</h3><p>1.在博客目录下hexo new  “文件名”</p>
-<p>2.npm install –save hexo-deployer-git          本地和github连接</p>
-<p>3.每次修改hexo clean 清理  hexo g  解析  hexo d 部署到github</p>
-<p>4._config.yml文件里最后面增加</p>
-<p>​    type: ‘git’</p>
-<p>​    repo: 自己的仓库地址</p>
-<p>​    branch: master</p>
-<p>5.更新主题在themes下git clone 主题的地址，然后把在_config.yml文件里吧themes 后面改成主题文件名</p>
-<table>
-<thead>
-<tr>
-<th>配置选项</th>
-<th>默认值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>title</td>
-<td><code>Markdown</code> 的文件标题</td>
-<td>文章标题，强烈建议填写此选项</td>
-</tr>
-<tr>
-<td>date</td>
-<td>文件创建时的日期时间</td>
-<td>发布时间，强烈建议填写此选项，且最好保证全局唯一</td>
-</tr>
-<tr>
-<td>author</td>
-<td>根 <code>_config.yml</code> 中的 <code>author</code></td>
-<td>文章作者</td>
-</tr>
-<tr>
-<td>img</td>
-<td><code>featureImages</code> 中的某个值</td>
-<td>文章特征图，推荐使用图床(腾讯云、七牛云、又拍云等)来做图片的路径.如: <code>http://xxx.com/xxx.jpg</code></td>
-</tr>
-<tr>
-<td>top</td>
-<td><code>true</code></td>
-<td>推荐文章（文章是否置顶），如果 <code>top</code> 值为 <code>true</code>，则会作为首页推荐文章</td>
-</tr>
-<tr>
-<td>cover</td>
-<td><code>false</code></td>
-<td><code>v1.0.2</code>版本新增，表示该文章是否需要加入到首页轮播封面中</td>
-</tr>
-<tr>
-<td>coverImg</td>
-<td>无</td>
-<td><code>v1.0.2</code>版本新增，表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片</td>
-</tr>
-<tr>
-<td>password</td>
-<td>无</td>
-<td>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 <code>password</code> 的值，该值必须是用 <code>SHA256</code> 加密后的密码，防止被他人识破。前提是在主题的 <code>config.yml</code> 中激活了 <code>verifyPassword</code> 选项</td>
-</tr>
-<tr>
-<td>toc</td>
-<td><code>true</code></td>
-<td>是否开启 TOC，可以针对某篇文章单独关闭 TOC 的功能。前提是在主题的 <code>config.yml</code> 中激活了 <code>toc</code> 选项</td>
-</tr>
-<tr>
-<td>mathjax</td>
-<td><code>false</code></td>
-<td>是否开启数学公式支持 ，本文章是否开启 <code>mathjax</code>，且需要在主题的 <code>_config.yml</code> 文件中也需要开启才行</td>
-</tr>
-<tr>
-<td>summary</td>
-<td>无</td>
-<td>文章摘要，自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要</td>
-</tr>
-<tr>
-<td>categories</td>
-<td>无</td>
-<td>文章分类，本主题的分类表示宏观上大的分类，只建议一篇文章一个分类</td>
-</tr>
-<tr>
-<td>tags</td>
-<td>无</td>
-<td>文章标签，一篇文章可以多个标签</td>
-</tr>
-<tr>
-<td>keywords</td>
-<td>文章标题</td>
-<td>文章关键字，SEO 时需要</td>
-</tr>
-<tr>
-<td>reprintPolicy</td>
-<td>cc_by</td>
-<td>文章转载规则， 可以是 cc_by, cc_by_nd, cc_by_sa, cc_by_nc, cc_by_nc_nd, cc_by_nc_sa, cc0, noreprint 或 pay 中的一个</td>
-</tr>
-</tbody></table>
-<h3 id="最简示例"><a href="#最简示例" class="headerlink" title="最简示例"></a>最简示例</h3><pre><code>---
-title: typora-vue-theme主题介绍
-date: 2018-09-07 09:25:00
----</code></pre>
-<h3 id="最全示例"><a href="#最全示例" class="headerlink" title="最全示例"></a>最全示例</h3><pre><code>---
-title: typora-vue-theme主题介绍
-date: 2018-09-07 09:25:00
-author: 赵奇
-img: /source/images/xxx.jpg
-top: true
-cover: true
-coverImg: /images/1.jpg
-password: 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92
-toc: false
-mathjax: false
-summary: 这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
-categories: Markdown
-tags:
-  - Typora
-  - Markdown
----</code></pre>
-<h3 id="配置个性化域名"><a href="#配置个性化域名" class="headerlink" title="配置个性化域名"></a>配置个性化域名</h3><p>一顿操作下来，打开我们的博客还是：<a target="_blank" rel="noopener" href="http://www.xxx.github.io/">www.xxx.github.io</a>，是不是很没有牌面？我们可以考虑购买一个专属域名，以后打开博客就是这样：<a target="_blank" rel="noopener" href="http://www.xxx.com/">www.xxx.com</a> 。</p>
-<p><a target="_blank" rel="noopener" href="https://www.aliyun.com/">阿里云</a>和<a target="_blank" rel="noopener" href="https://cloud.tencent.com/">腾讯云</a>都可以，我的是腾讯云，购买域名后首先需要添加解析：</p>
-<p><img src="/medias/wu.gif" data-original="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/24.png" alt="img"></p>
-<p><img src="/medias/wu.gif" data-original="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/25.png" alt="img"></p>
-<p><strong>方法一：</strong>点击添加记录，需要添加两个记录，两个记录类型都是 CNAME ，第一个主机记录为 @ ，第二个主机记录为 www，记录值都是填你自己的博客地址（比如我的是：muyiio.github.io），保存之后域名解析就完成了！</p>
-<p><img src="/medias/wu.gif" data-original="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/27.png" alt="img"></p>
-<p><strong>方法二：</strong>两个记录类型为 A ，第一个主机记录为 @ ，第二个主机记录为 www，记录值都为博客的 IP 地址，IP 地址可以 cmd 中输入 ping 你的博客地址 获得（比如我的：ping muyiio.github.io），保存之后域名解析就完成了！</p>
-<p><img src="/medias/wu.gif" data-original="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/26.png" alt="img"></p>
-<p><strong>不管在哪个平台购买域名，操作都大同小异，这里说明两点</strong>：</p>
-<p>然后打开你的github博客项目，点击settings，拉到下面Custom domain处，填上你自己的域名，保存就可以了</p>
-<p>现在我们的项目根目录应该会出现一个名为CNAME的文件了。如果没有的话，打开你本地博客/source目录，我的是C:\Blog\Hexo\source，新建CNAME文件，（注意不要加.txt，没有任何后缀名！）。然后在里面写上你的域名，保存。最后运行hexo g、hexo d上传到github。</p>
-<p><img src="/medias/wu.gif" data-original="https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/29.png" alt="img"></p>
-<p>现在就可以通过我们的个性化域名：<a target="_blank" rel="noopener" href="http://www.xxx.com、xxx.com/">www.xxx.com、xxx.com</a>访问自己的博客了。</p>
+                <p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210102173643.png" alt="2LEB$9[5XB}X5PR}_@9]NPO"></p>
+<p>数组中存了很多没定义的值我们就可以把它转换成稀疏数组</p>
+<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>当一个数组中的大部分元素是0是或者是一个相同的数值时，我们可以用稀疏数组来保存原来数组</p>
+<p>稀疏数组的处理方法是：</p>
+<p>1.记录数组<strong>一共几行几列，有多少个有效值</strong></p>
+<p>2.把具不同值元素的行号和列号及值保持到一个小规模的数组中，从而<strong>减小规模</strong></p>
+<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210102174449.png"></p>
+<h2 id="思路及其实现"><a href="#思路及其实现" class="headerlink" title="思路及其实现"></a>思路及其实现</h2><p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210102174555.png" alt="image-20200723150712766"></p>
+<p><strong>二维数组转稀疏数组的思路：</strong></p>
+<p>1.遍历原始的二维数组，得到有效数据的个数sum<br>2.根据sum就可以创建稀疏数组sparseArr = int[sum+1] [3]<br>3.将二维数组的有效数据存入到稀疏数组中</p>
+<p><strong>稀疏数组转原始的二维数组的思路：</strong></p>
+<p>1.先读取稀疏数组的第一行，根据第一行数据，创建原始的二维数组，比如上面的 chessArr2 = int[11] [11]<br>2.再读取稀疏数组后几行的数据，并赋给原始的二维数组即可</p>
+<p>代码实现：</p>
+<pre><code class="java">public class sparse {
+    //创建二维数组11*11的数组
+    //0表示没棋子1表示白棋2表示黑棋
+    public static void main(String []args) {
+        int arr1[][] = new int[11][11];
+        arr1[2][3] = 1;
+        arr1[4][5] = 2;
+        for (int[] a:arr1) {
+            for(int val: a) {
+                System.out.printf("%d\t", val);
+            }
+            System.out.println();
+        }
+        //遍历获得有效数据
+        int sum = 0;//标记
+        for(int i = 0;i&lt;arr1.length;i++) {
+            for(int j = 0;j&lt;arr1.length;j++) {
+                if(arr1[i][j]!=0) {
+                    sum++;
+                }
+            }
+        }
+        int SparseArr[][] = new int [sum+1][3];
+        SparseArr[0][0] = 11;
+        SparseArr[0][1] = 11;
+        SparseArr[0][2] = sum;
+
+        //遍历数据添加数据
+        int cout = 0;//计入第几个非零的值
+        for(int i = 0;i&lt;arr1.length;i++) {
+            for(int j = 0;j&lt;arr1.length;j++) {
+                if(arr1[i][j]!=0) {
+                    cout++;
+                    //稀疏数组第一列是存有效数据的行号
+                    //第二列是存列好
+                    //第三列是值
+                    SparseArr[cout][0] = i;
+                    SparseArr[cout][1] = j;
+                    SparseArr[cout][2] = arr1[i][j];
+                }
+            }
+        }
+        // 输出稀疏数组的形式
+        System.out.println();
+        System.out.println("得到稀疏数组为~~~~");
+        for (int i = 0; i &lt; SparseArr.length; i++) {
+            System.out.printf("%d\t%d\t%d\t\n", SparseArr[i][0], SparseArr[i][1], SparseArr[i][2]);
+        }
+        System.out.println();        
+
+        //稀疏数组恢复原来数组
+        int arr2[][] = new int[SparseArr[0][0]][SparseArr[0][1]];
+        for(int i = 1;i&lt;SparseArr.length;i++) {
+            arr2[SparseArr[i][0]][SparseArr[i][1]] =  SparseArr[i][2];
+        }
+        System.out.println();
+        System.out.println("恢复后的二维数组");
+
+        for (int[] row : arr2) {
+            for (int data : row) {
+                System.out.printf("%d\t", data);
+            }
+            System.out.println();
+        }
+    }
+
+}</code></pre>
+<p>输出结果：</p>
+<p>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    1    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    2    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0    </p>
+<p>得到稀疏数组为~~~~<br>11    11    2<br>2    3    1<br>4    5    2    </p>
+<p>恢复后的二维数组<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    1    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    2    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0<br>0    0    0    0    0    0    0    0    0    0    0    </p>
 
                 
             </div>
@@ -780,7 +747,7 @@ tags:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="javaqiandsgfkl.github.io/2020/12/30/github-pei-zhi-ming-ling/">javaqiandsgfkl.github.io/2020/12/30/github-pei-zhi-ming-ling/</a>
+                    <a href="javaqiandsgfkl.github.io/2021/01/02/xi-shu-shu-zu/">javaqiandsgfkl.github.io/2021/01/02/xi-shu-shu-zu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -818,8 +785,8 @@ tags:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                                    <span class="chip bg-color">随笔</span>
+                                <a href="/tags/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/">
+                                    <span class="chip bg-color">稀疏数组</span>
                                 </a>
                             
                         </div>
@@ -1252,9 +1219,60 @@ tags:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/01/02/xi-shu-shu-zu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/wu.gif" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="稀疏数组">
+                        
+                        <span class="card-title">稀疏数组</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/">
+                        <span class="chip bg-color">稀疏数组</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/12/31/2020-nian-xiao-jie/">
                     <div class="card-image">
@@ -1272,62 +1290,13 @@ tags:
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
                             CJ
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/12/29/ge/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/wu.gif" data-original="/medias/featureimages/7.jpg" class="responsive-img" alt="markdown语法">
-                        
-                        <span class="card-title">markdown语法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            markdown的笔记
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/markdown/" class="post-category">
-                                    markdown
-                                </a>
-                            
                             
                         </span>
                     </div>
