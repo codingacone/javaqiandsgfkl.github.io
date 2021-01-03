@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="markdown语法, MyBlog">
+    <meta name="keywords" content="Java数据结构与算法, MyBlog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>markdown语法 | MyBlog</title>
+    <title>Java数据结构与算法 | MyBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -465,12 +465,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">markdown语法</h1>
+                    <h1 class="description center-align post-title">Java数据结构与算法</h1>
                 </div>
             </div>
         </div>
@@ -586,8 +586,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                                <span class="chip bg-color">随笔</span>
+                            <a href="/tags/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/">
+                                <span class="chip bg-color">循环队列</span>
                             </a>
                         
                     </div>
@@ -598,8 +598,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/markdown/" class="post-category">
-                                markdown
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
                             </a>
                         
                     </div>
@@ -611,7 +611,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-29
+                    2021-01-03
                 </div>
                 
 
@@ -620,7 +620,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    40
+                    1.1k
                 </div>
                 
 
@@ -637,10 +637,185 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>标题#依次增大##最多6个#</p>
-<p>标题#依次增大##最多6个#</p>
-<p>标题#依次增大##最多6个#</p>
-<p>标题#依次增大##最多6个#</p>
+                <h2 id="一、循环队列"><a href="#一、循环队列" class="headerlink" title="一、循环队列"></a>一、循环队列</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>队列是一个<strong>有序列表</strong>，可以用<strong>数组</strong>或者<strong>链表</strong>来实现。</li>
+<li>队列是先进先出的原则，就是和排队取票一样</li>
+</ul>
+<h3 id="模拟思路"><a href="#模拟思路" class="headerlink" title="模拟思路"></a>模拟思路</h3><ul>
+<li><p>队列本身是有序列表，若使用数组的结构来存储队列的数据，则队列数组的声明如下图, 其中 maxSize 是该队列的最大容量</p>
+</li>
+<li><p>因为队列的输出、输入是分别从前后端来处理，因此需要两个变量 front及 rear分别记录队列前后端的下标，front 会随着数据输出而改变，而 rear则是随着数据输入而改变，如图所示</p>
+</li>
+<li><p>front变量指向<strong>队首元素</strong>，初值为0</p>
+</li>
+<li><p>rear变量指向队尾元素的<strong>下一个元素</strong>，初值为0。规定空出一个位置</p>
+</li>
+<li><p>队列为空的判定条件：front == rear</p>
+</li>
+<li><p>队列为满的判定条件：(rear + 1) % maxSize == front</p>
+</li>
+<li><p>队列中有效元素的个数：(rear - front + maxSize) % maxSize</p>
+</li>
+<li><p>入队和出队时，都需要让标记<strong>对maxSize取模</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrayQueueDemo</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// 造一个循环队列的类</span>
+    <span class="token keyword">class</span> <span class="token class-name">CircleArray</span> <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> maxSize<span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 数组长度</span>
+        <span class="token comment" spellcheck="true">// 标记队列头</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> front<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 标记队列尾</span>
+        <span class="token comment" spellcheck="true">// rear 变量的含义做一个调整：rear指向队列的最后一个元素的后一个位置.因为希望空出一个空间做为约定.</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> rear<span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 数组模拟循环队列</span>
+
+        <span class="token keyword">public</span> <span class="token function">CircleArray</span><span class="token punctuation">(</span><span class="token keyword">int</span> MaxSize<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            maxSize <span class="token operator">=</span> MaxSize<span class="token punctuation">;</span>
+            arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>maxSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 判断队列是否满</span>
+        <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>rear <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> maxSize <span class="token operator">==</span> front<span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 小算法</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 判断队列是否为空</span>
+        <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> rear <span class="token operator">==</span> front<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 添加元素</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addQueue</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 判断队列是否满</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"队列满，不能加入数据~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+            <span class="token punctuation">}</span>
+            arr<span class="token punctuation">[</span>rear<span class="token punctuation">]</span> <span class="token operator">=</span> n<span class="token punctuation">;</span>
+            rear <span class="token operator">=</span> <span class="token punctuation">(</span>rear <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> maxSize<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 获取队列的数据, 出队列</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 判断是否为空</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 通过抛出异常</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"队列空，不能取数据"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">int</span> v <span class="token operator">=</span> arr<span class="token punctuation">[</span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            front <span class="token operator">=</span> <span class="token punctuation">(</span>front <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> maxSize<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> v<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 显示队列的所有数据</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"队列为空"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">// 这是个循环队列有可能前面没值了，不可以把数组都遍历一遍</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> front<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> front <span class="token operator">+</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"arr[%d]=%d\n"</span><span class="token punctuation">,</span> i <span class="token operator">%</span> maxSize<span class="token punctuation">,</span> arr<span class="token punctuation">[</span>i <span class="token operator">%</span> maxSize<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 或得数组的有效个数</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// rear = 2 front = 1 maxSize = 3</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>rear <span class="token operator">+</span> maxSize <span class="token operator">-</span> front<span class="token punctuation">)</span> <span class="token operator">%</span> maxSize<span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 小算法</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">// 获得头数据</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">headQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+                <span class="token comment" spellcheck="true">// 通过抛出异常</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"队列空"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> arr<span class="token punctuation">[</span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
+</ul>
+<h2 id="二、链表"><a href="#二、链表" class="headerlink" title="二、链表"></a>二、链表</h2><h3 id="1-单向链表"><a href="#1-单向链表" class="headerlink" title="1.单向链表"></a>1.单向链表</h3><h4 id="链表的介绍"><a href="#链表的介绍" class="headerlink" title="链表的介绍"></a>链表的介绍</h4><p>链表在内存中的存储</p>
+<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210103232924.png" alt="img"></p>
+<p><strong>特点</strong></p>
+<ul>
+<li>链表是以节点的方式来存储,<strong>是链式存储</strong></li>
+<li>每个节点包含 data 域 和 next 域。next域用来指向下一个节点</li>
+<li>链表的各个节点不一定是连续存储的</li>
+<li>链表分<strong>带头节点的链表</strong>和<strong>没有头节点的链表</strong>，根据实际的需求来确定</li>
+</ul>
+<p>带头结点的<strong>逻辑示意图</strong></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200617221632.png"><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210103233000.png" alt="img"></a></p>
+<h4 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h4><p><strong>创建（添加）</strong></p>
+<ul>
+<li>先创建一个Head头节点，表示单链表的头</li>
+<li>后面我们每添加一个节点，就放在链表的最后</li>
+</ul>
+<p><strong>遍历</strong></p>
+<ul>
+<li>通过一个辅助变量，来遍历整个链表</li>
+</ul>
+<p><strong>有序插入</strong></p>
+<ul>
+<li>先遍历链表，找到应该插入的位置</li>
+<li>要插入的节点的next指向插入位置的后一个节点</li>
+<li>插入位置的前一个节点的next指向要插入节点<ul>
+<li>插入前要判断是否在队尾插入</li>
+</ul>
+</li>
+</ul>
+<p><strong>根据某个属性节点修改值</strong></p>
+<ul>
+<li>先遍历节点，找到修改的位置<ul>
+<li>如果未找到修改节点，则不修改</li>
+</ul>
+</li>
+</ul>
+<p><strong>删除某个节点</strong></p>
+<ul>
+<li>先遍历节点，找到要删除节点的前一个节点</li>
+<li>进行删除操作</li>
+</ul>
+<p><strong>求倒数第n个节点的信息</strong></p>
+<ul>
+<li>遍历链表，求出链表的<strong>有效长度</strong>length（不算头结点）</li>
+<li>遍历链表到第length-n的节点</li>
+</ul>
+<p><strong>翻转链表</strong></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616112143.png"><img src="/medias/wu.gif" data-original="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616112143.png" alt="img"></a></p>
+<ul>
+<li><p>创建一个新的头结点，作为新链表的头</p>
+</li>
+<li><p>从头遍历旧链表，将遍历到的节点插入新链表的头结点之后</p>
+</li>
+<li><p>注意需要用到</p>
+<p>两个暂存节点</p>
+<ul>
+<li>一个用来保存正在遍历的节点</li>
+<li>一个用来保存正在遍历节点的下一个节点</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616142843.png"><img src="/medias/wu.gif" data-original="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616142843.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616142931.png"><img src="/medias/wu.gif" data-original="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616142931.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616142248.png"><img src="/medias/wu.gif" data-original="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616142248.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616142415.png"><img src="/medias/wu.gif" data-original="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200616142415.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200617221646.png"><img src="/medias/wu.gif" data-original="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200617221646.png" alt="img"></a></p>
+<p><strong>逆序打印</strong></p>
+<ul>
+<li>遍历链表，将遍历到的节点入栈</li>
+<li>遍历完后，进行出栈操作，同时打印出栈元素</li>
+</ul>
 
                 
             </div>
@@ -667,7 +842,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="javaqiandsgfkl.github.io/2020/12/29/ge/">javaqiandsgfkl.github.io/2020/12/29/ge/</a>
+                    <a href="javaqiandsgfkl.github.io/2021/01/03/xun-huan-dui-lie/">javaqiandsgfkl.github.io/2021/01/03/xun-huan-dui-lie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -705,8 +880,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                                    <span class="chip bg-color">随笔</span>
+                                <a href="/tags/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/">
+                                    <span class="chip bg-color">循环队列</span>
                                 </a>
                             
                         </div>
@@ -1139,80 +1314,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/12/30/github-pei-zhi-ming-ling/">
+                <a href="/2021/01/03/xun-huan-dui-lie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/wu.gif" data-original="/medias/featureimages/21.jpg" class="responsive-img" alt="github配置命令">
+                        <img src="/medias/wu.gif" data-original="/medias/featureimages/3.jpg" class="responsive-img" alt="Java数据结构与算法">
                         
-                        <span class="card-title">github配置命令</span>
+                        <span class="card-title">Java数据结构与算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            搭建操作
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-30
-                        </span>
-                        <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            CJ
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/12/29/ge/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/wu.gif" data-original="/medias/featureimages/7.jpg" class="responsive-img" alt="markdown语法">
-                        
-                        <span class="card-title">markdown语法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            markdown的笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/markdown/" class="post-category">
-                                    markdown
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
@@ -1223,8 +1354,57 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/tags/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/">
+                        <span class="chip bg-color">循环队列</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/02/xi-shu-shu-zu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/wu.gif" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="稀疏数组">
+                        
+                        <span class="card-title">稀疏数组</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/">
+                        <span class="chip bg-color">稀疏数组</span>
                     </a>
                     
                 </div>
