@@ -620,7 +620,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.8k
                 </div>
                 
 
@@ -758,8 +758,23 @@
 <p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210103233738.png" alt="img"></p>
 <h4 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h4><p><strong>创建（添加）</strong></p>
 <ul>
-<li>先创建一个Head头节点，表示单链表的头</li>
-<li>后面我们每添加一个节点，就放在链表的最后</li>
+<li><p>先创建一个Head头节点，表示单链表的头</p>
+</li>
+<li><p>后面我们每添加一个节点，就放在链表的最后</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//在节点的最后添加</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span>StudentNode studentNode<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//我们的头结点不能动，因此要一个辅助节点temp</span>
+    StudentNode temp <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>temp <span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//找到最后了我们就退出循环</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//没有到最后就后移</span>
+        temp <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    temp<span class="token punctuation">.</span>next <span class="token operator">=</span> studentNode<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
 </ul>
 <p><strong>遍历</strong></p>
 <ul>
@@ -767,13 +782,35 @@
 </ul>
 <p><strong>有序插入</strong></p>
 <ul>
-<li>先遍历链表，找到应该插入的位置</li>
-<li>要插入的节点的next指向插入位置的后一个节点</li>
-<li>插入位置的前一个节点的next指向要插入节点<ul>
+<li><p>先遍历链表，找到应该插入的位置</p>
+</li>
+<li><p>要插入的节点的next指向插入位置的后一个节点</p>
+</li>
+<li><p>插入位置的前一个节点的next指向要插入节点</p>
+<ul>
 <li>插入前要判断是否在队尾插入</li>
 </ul>
 </li>
 </ul>
+<p><strong>求链表的节点个数</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//我们要遍历所以要传一个头结点进来</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">getLinkedlength</span><span class="token punctuation">(</span>StudentNode head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//头结点不算</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//辅助变量</span>
+    StudentNode temp <span class="token operator">=</span> head<span class="token punctuation">.</span>nexd<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//定义计入的变量</span>
+    StudentNode sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>temp<span class="token operator">!</span> <span class="token operator">=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        sum<span class="token operator">++</span><span class="token punctuation">;</span>
+        temp <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
 <p><strong>根据某个属性节点修改值</strong></p>
 <ul>
 <li>先遍历节点，找到修改的位置<ul>
@@ -791,8 +828,26 @@
 <li>遍历链表，求出链表的<strong>有效长度</strong>length（不算头结点）</li>
 <li>遍历链表到第length-n的节点</li>
 </ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> StudentNode <span class="token function">reciprocal</span><span class="token punctuation">(</span>StudentNode head<span class="token punctuation">,</span><span class="token keyword">int</span> index<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//判断链表是否为空</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> size <span class="token operator">=</span> <span class="token function">getLinkedlength</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//获得链表的个数</span>
+    <span class="token comment" spellcheck="true">//头结点不能动创建一个辅助变量</span>
+    StudentNode temp <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//校验传进来的值</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>index<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token operator">||</span>index<span class="token operator">></span>size<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//小算法size - index</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>size <span class="token operator">-</span> index<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        temp <span class="token operator">=</span> temp<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> temp
+<span class="token punctuation">}</span></code></pre>
 <p><strong>翻转链表</strong></p>
-<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210103233754.png" alt="img"></p>
+<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210104232046.PNG" alt="捕获"></p>
 <ul>
 <li><p>创建一个新的头结点，作为新链表的头</p>
 </li>
@@ -806,15 +861,45 @@
 </ul>
 </li>
 </ul>
-<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210103233827.png" alt="img"></p>
-<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210103233837.png" alt="img"></p>
-<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210103233850.png" alt="img"></p>
-<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210103233911.png" alt="img"></p>
-<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210103234046.png" alt="img"></p>
-<p><strong>逆序打印</strong></p>
+<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210104233812.PNG" alt="1"></p>
 <ul>
-<li>遍历链表，将遍历到的节点入栈</li>
-<li>遍历完后，进行出栈操作，同时打印出栈元素</li>
+<li><p>遍历完后，进行出栈操作，同时打印出栈元素</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">reverseList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">==</span>null <span class="token operator">||</span>head<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token operator">=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//辅助反转</span>
+    StudentNode reverse <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StudentNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    StudentNode cur <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//辅助变量后面遍历用</span>
+    StudentNode next <span class="token operator">=</span> null<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//用来保存cur的next节点</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>cur<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        next <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        cur<span class="token punctuation">.</span>next <span class="token operator">=</span> reverse<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        reverse<span class="token punctuation">.</span>next <span class="token operator">=</span> cur<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//新链表和cur连接</span>
+        <span class="token comment" spellcheck="true">//后移</span>
+        cur <span class="token operator">=</span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    head<span class="token punctuation">.</span>next <span class="token operator">=</span> reverse<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>双指针的做法</strong></p>
+<p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210105000917.PNG" alt="捕获"></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">main15</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> ListNode <span class="token function">ReverseLisst</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        ListNode frontNode <span class="token operator">=</span> head<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//第一个指针</span>
+        ListNode removeNode <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//第二个指针</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>removeNode<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            ListNode temp <span class="token operator">=</span> removeNode<span class="token punctuation">.</span>next<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//辅助节点</span>
+            removeNode<span class="token punctuation">.</span>next<span class="token punctuation">;</span> <span class="token operator">=</span> frontNode<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//反正</span>
+            frontNode <span class="token operator">=</span> removeNode<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//后移</span>
+            removeNode <span class="token operator">=</span> temp<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//后移</span>
+    <span class="token punctuation">}</span>
+        head<span class="token punctuation">.</span>next <span class="token operator">=</span> null<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//不然死循环</span>
+        <span class="token keyword">return</span> frontNode<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
 </ul>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Stack<span class="token punctuation">;</span>
 
@@ -1109,7 +1194,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="javaqiandsgfkl.github.io/2021/01/03/xun-huan-dui-lie/">javaqiandsgfkl.github.io/2021/01/03/xun-huan-dui-lie/</a>
+                    <a href="javaqiandsgfkl.github.io/2021/01/03/java-shu-ju-jie-gou-yu-suan-fa/">javaqiandsgfkl.github.io/2021/01/03/java-shu-ju-jie-gou-yu-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1586,7 +1671,7 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2021/01/03/xun-huan-dui-lie/">
+                <a href="/2021/01/03/java-shu-ju-jie-gou-yu-suan-fa/">
                     <div class="card-image">
                         
                         
@@ -1820,7 +1905,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.7k</span>&nbsp;字
+                class="white-color">5k</span>&nbsp;字
             
             
             
