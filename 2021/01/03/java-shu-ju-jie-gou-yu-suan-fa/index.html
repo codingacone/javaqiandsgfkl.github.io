@@ -620,7 +620,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.6k
+                    9.9k
                 </div>
                 
 
@@ -2083,10 +2083,17 @@
 <p>后序遍历</p>
 <p>先遍历左子节点，再遍历右子节点，最后<strong>遍历父节点</strong></p>
 <p><strong>可以看出，前中后的区别在于父节点遍历的时机</strong></p>
+<p><strong>二叉树的递归序</strong></p>
+<p>125552666213331</p>
+<p>每个节点都会回到自己三次</p>
+<p>前序就是第一次出现的时候打印</p>
+<p>中序就是第二次出现打印</p>
+<p>后序就是第三次出现打印</p>
 <p><img src="/medias/wu.gif" data-original="https://cdn.jsdelivr.net/gh/javaqiandsgfkl/tuchuagn/images/20210118201545.png" alt="img"></p>
 <p>前序结果：1 2  5 6 3</p>
 <p>中序结果：5 2 6 1 3</p>
 <p>后序结果：5 6 2 3</p>
+<p><strong>递归版</strong></p>
 <pre class=" language-java"><code class="language-java">
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">binaryTreeDemo</span> <span class="token punctuation">{</span>
@@ -2250,7 +2257,71 @@ sutNode <span class="token punctuation">[</span>id<span class="token operator">=
 sutNode <span class="token punctuation">[</span>id<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> name<span class="token operator">=</span>C<span class="token punctuation">]</span>
 sutNode <span class="token punctuation">[</span>id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> name<span class="token operator">=</span>A<span class="token punctuation">]</span>
 </code></pre>
-<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4>
+<p><strong>非递归版</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">tree</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
+    tree left<span class="token punctuation">;</span>
+    tree right<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//先序遍历</span>
+<span class="token comment" spellcheck="true">//头节点先压入栈中，打印并弹出</span>
+<span class="token comment" spellcheck="true">//然后先右再左的压，弹到栈空</span>
+ pulic <span class="token keyword">void</span> <span class="token function">preOrder</span><span class="token punctuation">(</span>tree head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            Stack<span class="token operator">&lt;</span>tree<span class="token operator">></span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span>tree<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            s<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">isEmply</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                head <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>right<span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    s<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>left<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    s<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>                
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//思路先序遍历是头左右，先压左在压右就可以实现头右左用两个栈就可以实现左右头了</span>
+<span class="token comment" spellcheck="true">//后序遍历</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">postOrder</span><span class="token punctuation">(</span>tree head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Stack<span class="token operator">&lt;</span>tree<span class="token operator">></span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span>tree<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Stack<span class="token operator">&lt;</span>tree<span class="token operator">></span> s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span>tree<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">isEmply</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                head <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                s2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>left<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                s<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>right<span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                s<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token punctuation">}</span> 
+            <span class="token punctuation">}</span><span class="token keyword">while</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">isEmply</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//中序遍历 1、每课子树的左边界都压入栈，依次弹出并打印 </span>
+    <span class="token comment" spellcheck="true">//让弹出节点返回第一步</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">infixOrder</span><span class="token punctuation">(</span>tree head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         Stack<span class="token operator">&lt;</span>tree<span class="token operator">></span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span>tree<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">isEmply</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">||</span>head<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                head <span class="token operator">=</span> head<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                head <span class="token operator">=</span> head<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
                 
             </div>
             <hr/>
@@ -2987,7 +3058,7 @@ sutNode <span class="token punctuation">[</span>id<span class="token operator">=
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.8k</span>&nbsp;字
+                class="white-color">12.1k</span>&nbsp;字
             
             
             
