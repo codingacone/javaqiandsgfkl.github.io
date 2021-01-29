@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="友情链接, cjblog">
+    <meta name="keywords" content="友情链接, cj">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>友情链接 | cjblog</title>
+    <title>友情链接 | cj</title>
     <link rel="stylesheet" type="text/css" href="/libs/artitalk/artitalk.min.css">
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -188,7 +188,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">cjblog</span>
+                    <span class="logo-span">cj</span>
                 </a>
             </div>
             
@@ -287,7 +287,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">cjblog</div>
+        <div class="logo-name">cj</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -490,9 +490,7 @@
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
 </script>
 
 
@@ -759,9 +757,9 @@
 </ul>
 <p>例如我的博客友链，大家可以加到自己博客里哦：</p>
 <ul>
-<li><strong>名称：</strong>John Doe</li>
+<li><strong>名称：</strong>cj</li>
 <li><strong>地址：</strong><a target="_blank" rel="noopener" href="https://xiaocaiji.cn/">https://xiaocaiji.cn/</a></li>
-<li><strong>简介：</strong>Yshawlon</li>
+<li><strong>简介：</strong>菜鸡一枚</li>
 <li><strong>头像：</strong><a target="_blank" rel="noopener" href="https://imgchr.com/i/rOB2jg">https://imgchr.com/i/rOB2jg</a></li>
 </ul>
 
@@ -1026,7 +1024,7 @@
 </div>
 
 <script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#vcomments',
@@ -1035,7 +1033,7 @@
         notify: 'false' === 'true',
         verify: 'false' === 'true',
         visitor: 'true' === 'true',
-        avatar: 'mm',
+        avatar: 'wavatar',
         pageSize: '10',
         lang: 'zh-cn',
         placeholder: 'just go go'
